@@ -4,6 +4,10 @@ Created on 05/04/2012
 @author: heli
 '''
 from PyQt4.QtSql import QSqlQuery
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
+import sys
+from baseDatos import base_datos
 
 class Jugador():
   def __init__(self, id=None):
@@ -33,3 +37,32 @@ class Jugador():
     else:
       print "Error al obtener datos del Jugador."
       return False
+from ui.juegador import Ui_Form_altas
+class ventana_jugador(QWidget,Ui_Form_altas):
+  def __init__(self):
+    QWidget.__init__(self)
+    self.setupUi(self)
+    
+    
+  def agregar_jugador(self):
+    pass
+  
+  
+  def obtener_datos_de_formulario(self):
+    # Nombre, Nick, Edad, Rating
+    datos=[]
+    
+    datos.append(self.le_nombre.text())
+    datos.append(self.le_nick.text())
+    datos.append(int(self.le_edad.text()))
+    datos.append(self.le_rating.text())
+    
+    return datos
+
+if __name__=="__main__":
+  app=QApplication(sys.argv)
+  d=base_datos()
+  form=ventana_jugador()
+  form.show()
+  app.exec_()
+  
