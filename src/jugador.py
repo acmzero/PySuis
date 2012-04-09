@@ -7,6 +7,7 @@ from PyQt4.QtSql import QSqlQuery
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 import sys
+import sqlite3
 from baseDatos import base_datos
 
 class Jugador():
@@ -42,12 +43,19 @@ class ventana_jugador(QWidget,Ui_Form_altas):
   def __init__(self):
     QWidget.__init__(self)
     self.setupUi(self)
-    
+    self.pb_aceptar.clicked.connect(self.agregar_jugador)
     
   def agregar_jugador(self):
-    pass
-  
-  
+    connection = sqlite3.connect('pysuis.db')
+    cursor= connection.cursor()
+    aux=self.obtener_datos_de_formulario()
+    id='null'
+    datos=[]
+    datos.append(id)
+    for i in aux:
+      datos.append(i)
+    cursor.execute('insert into jugadores (jugador_id,Nombre,Nick,Edad,Rating) values (?,?,?,?,?)',datos)
+    cursor.commit()
   def obtener_datos_de_formulario(self):
     # Nombre, Nick, Edad, Rating
     datos=[]
