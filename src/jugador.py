@@ -48,13 +48,8 @@ class ventana_jugador(QWidget,Ui_Form_altas):
   def agregar_jugador(self):
     connection = sqlite3.connect('pysuis.db')
     cursor= connection.cursor()
-    aux=self.obtener_datos_de_formulario()
-    id='null'
-    datos=[]
-    datos.append(id)
-    for i in aux:
-      datos.append(i)
-    cursor.execute('insert into jugadores (jugador_id,Nombre,Nick,Edad,Rating) values (?,?,?,?,?)',datos)
+    datos=self.obtener_datos_de_formulario()
+    cursor.execute('''insert into jugadores (Nombre,Nick,Edad,Rating) values (?,?,?,?)''',datos)
     cursor.commit()
   def obtener_datos_de_formulario(self):
     # Nombre, Nick, Edad, Rating
