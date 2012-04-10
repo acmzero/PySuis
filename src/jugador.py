@@ -55,16 +55,7 @@ class ventana_jugador(QWidget, Ui_Form_altas):
   def __init__(self):
     QWidget.__init__(self)
     self.setupUi(self)
-<<<<<<< HEAD
-    self.pb_aceptar.clicked.connect(self.agregar_jugador)
-    
-  def agregar_jugador(self):
-    connection = sqlite3.connect('pysuis.db')
-    cursor= connection.cursor()
-    datos=self.obtener_datos_de_formulario()
-    cursor.execute('''insert into jugadores (Nombre,Nick,Edad,Rating) values (?,?,?,?)''',datos)
-    cursor.commit()
-=======
+
     
     self.conectar_botones()
     
@@ -90,8 +81,6 @@ class ventana_jugador(QWidget, Ui_Form_altas):
       gg.setStandardButtons(gg.Ok)
       gg.exec_()
   
-  
->>>>>>> 96382cbdf4725601c90488cdc2863c868aceac8e
   def obtener_datos_de_formulario(self):
     # Nombre, Nick, Edad, Rating
     datos = []
