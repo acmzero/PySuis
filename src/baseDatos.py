@@ -16,7 +16,7 @@ class base_datos(QSqlDatabase):
     a=QSqlError()
     if os.path.exists("pysuis.db"):
       db.setDatabaseName("pysuis.db")
-      
+      db.open()
     else:
       w=open("pysuis.db","w")
       w.flush()
