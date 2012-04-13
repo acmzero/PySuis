@@ -53,7 +53,8 @@ class crear_base():
     g = lambda x: self.comandos.append(x)
     
     #Tabla de jugadores
-    g("CREATE TABLE `jugadores` (`jugador_id` int  PRIMARY KEY, `Nombre` int, `Nick` int,  `Edad` int,  `Rating` int)")
+    g("CREATE TABLE `jugadores` (`jugador_id` int  PRIMARY KEY, `Nombre` text, `Nick` text,  `Edad` numeric,  `Rating` numeric)")
     
+    g("CREATE TABLE `equipo` (`equipo_id` int  PRIMARY KEY, `Nombre` text, `procedencia` text")
     
 
