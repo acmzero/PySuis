@@ -55,6 +55,6 @@ class crear_base():
     #Tabla de jugadores
     g("CREATE TABLE `jugadores` (`jugador_id` int  PRIMARY KEY, `Nombre` text, `Nick` text,  `Edad` numeric,  `Rating` numeric)")
     
-    g("CREATE TABLE `equipo` (`equipo_id` int  PRIMARY KEY, `Nombre` text, `procedencia` text")
+    g("CREATE TABLE `equipo` (`equipo_id` int  PRIMARY KEY, `Nombre` varchar(60), `procedencia` varchar(60)")
     
 
